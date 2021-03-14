@@ -38,7 +38,11 @@
 {.deadCodeElim: on.}
 
 import
-  sdl
+  private/sdl_libname,
+  private/pixels,
+  private/version,
+  private/rwops,
+  private/surface
 
 const # Compile-time versions
   MAJOR_VERSION*  = 0
@@ -826,7 +830,7 @@ proc quit*() {.cdecl, importc: "GPU_Quit", dynlib: SDL2_GPU_LIB.}
 # Debugging, logging, and error handling
 
 const
-  Log* = logInfo
+  Log* = LOG_INFO
 
 proc setDebugLevel*(level: DebugLevel) {.
     cdecl, importc: "GPU_SetDebugLevel", dynlib: SDL2_GPU_LIB.}

@@ -36,7 +36,11 @@
 {.deadCodeElim: on.}
 
 import
-  sdl
+  private/sdl_libname,
+  private/version,
+  private/rwops,
+  private/pixels,
+  private/surface
 
 # Printable format: "$1.$2.$3" % [MAJOR, MINOR, PATCHLEVEL]
 const

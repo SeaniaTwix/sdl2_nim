@@ -74,6 +74,9 @@
 ##  The spin lock procedures and type are required and can not be
 ##  emulated because they are used in the atomic emulation code.
 
+import
+  sdl_libname
+
 type
   SpinLock* = cint
 

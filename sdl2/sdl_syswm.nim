@@ -32,7 +32,9 @@
 {.deadCodeElim: on.}
 
 import
-  sdl
+  private/sdl_libname,
+  private/version,
+  private/video
 
 when defined(SDL_PROTOTYPES_ONLY):
   type
@@ -325,7 +327,7 @@ else:
 # Procedure prototypes
 
 
-proc getWindowWMInfo*(window: sdl.Window; info: ptr SysWMinfo): bool {.
+proc getWindowWMInfo*(window: Window; info: ptr SysWMinfo): bool {.
     cdecl, importc: "SDL_GetWindowWMInfo", dynlib: SDL2_LIB.}
   ##  This procedure allows access to driver-dependent window information.
   ##

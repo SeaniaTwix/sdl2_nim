@@ -19,6 +19,14 @@
 #  3. This notice may not be removed or altered from any source distribution.
 #
 
+import
+  sdl_libname,
+  video,
+  surface,
+  pixels,
+  rect,
+  blendmode
+
 ##  render.nim
 ##  ==========
 ##

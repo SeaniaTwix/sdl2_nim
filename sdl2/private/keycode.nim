@@ -19,6 +19,9 @@
 #  3. This notice may not be removed or altered from any source distribution.
 #
 
+import
+  scancode
+
 ##  keycode.nim
 ##  ===========
 ##
@@ -28,7 +31,7 @@ const
   K_SCANCODE_MASK* = (1 shl 30)
 
 template scancodeToKeycode*(x: untyped): cint =
-  (cint(x) or K_SCANCODE_MASK)
+  (cint(x) or cast[cint](K_SCANCODE_MASK))
 
 type
   Keycode* {.size: sizeof(cint).} = enum ##  \

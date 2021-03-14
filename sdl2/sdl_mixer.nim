@@ -66,7 +66,10 @@
 {.deadCodeElim: on.}
 
 import
-  sdl
+  private/sdl_libname,
+  private/version,
+  private/audio,
+  private/rwops
 
 # Printable format: "$1.$2.$3" % [MAJOR, MINOR, PATCHLEVEL]
 const

@@ -34,7 +34,8 @@
 {.deadCodeElim: on.}
 
 import
-  sdl
+  private/sdl_libname,
+  private/surface
 
 # Defines
 

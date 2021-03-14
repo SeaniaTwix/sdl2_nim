@@ -34,7 +34,9 @@
 {.deadCodeElim: on.}
 
 import
-  sdl
+  private/sdl_libname,
+  private/surface,
+  sdl_gpu
 
 # Versioning
 const

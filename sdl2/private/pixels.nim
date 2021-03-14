@@ -19,6 +19,10 @@
 #  3. This notice may not be removed or altered from any source distribution.
 #
 
+import
+  stdinc,
+  sdl_libname
+
 ##  pixels.nim
 ##  ==========
 ##

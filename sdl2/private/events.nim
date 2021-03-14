@@ -19,6 +19,16 @@
 #  3. This notice may not be removed or altered from any source distribution.
 #
 
+import
+  sdl_libname,
+  keyboard,
+  video,
+  mouse,
+  joystick,
+  gamecontroller,
+  touch,
+  gesture
+
 ##  events.nim
 ##  ==========
 ##

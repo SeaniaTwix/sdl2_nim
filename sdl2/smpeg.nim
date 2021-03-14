@@ -29,7 +29,11 @@
 
 {.deadCodeElim: on.}
 
-import sdl
+import
+  private/sdl_libname,
+  private/audio,
+  private/rwops,
+  private/mutex
 
 const
   MAJOR_VERSION* = 2
@@ -135,7 +139,7 @@ proc newData*(
   ##  after a successful call to this procedure.
 
 proc newRwops*(
-  src: ptr sdl.RWops; info: ptr Info; freesrc: bool; sdlAudio: bool): Smpeg {.
+  src: ptr RWops; info: ptr Info; freesrc: bool; sdlAudio: bool): Smpeg {.
     cdecl, importc: "SMPEG_new_rwops", dynlib: SMPEG2_LIB.}
   ##  The same for a generic ``sdl.RWops`` structure.
   ##
@@ -167,7 +171,7 @@ proc setVolume*(mpeg: Smpeg; volume: cint) {.
   ##  Set the audio volume of an MPEG stream, in the range `0`-`100`.
 
 proc setDisplay*(
-  mpeg: Smpeg; callback: DisplayCallback; data: pointer; lock: sdl.Mutex) {.
+  mpeg: Smpeg; callback: DisplayCallback; data: pointer; lock: Mutex) {.
     cdecl, importc: "SMPEG_setdisplay", dynlib: SMPEG2_LIB.}
   ##  Set the frame display callback for MPEG video.
   ##
@@ -227,11 +231,11 @@ proc playAudioSDL*(mpeg: pointer; stream: ptr uint8; len: cint) {.
     cdecl, importc: "SMPEG_playAudioSDL", dynlib: SMPEG2_LIB.}
   ##  Wrapper for ``smpeg.playAudio()`` that can be passed to SDL and SDL_mixer.
 
-proc wantedSpec*(mpeg: Smpeg; wanted: ptr sdl.AudioSpec): cint {.
+proc wantedSpec*(mpeg: Smpeg; wanted: ptr AudioSpec): cint {.
     cdecl, importc: "SMPEG_wantedSpec", dynlib: SMPEG2_LIB.}
   ##  Get the best SDL audio spec for the audio stream.
 
-proc actualSpec*(mpeg: Smpeg; spec: ptr sdl.AudioSpec) {.
+proc actualSpec*(mpeg: Smpeg; spec: ptr AudioSpec) {.
     cdecl, importc: "SMPEG_actualSpec", dynlib: SMPEG2_LIB.}
   ##  Inform SMPEG of the actual SDL audio spec used for sound playback.
 
